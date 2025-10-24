@@ -27,6 +27,10 @@ public class UserDaoService {
         return users.stream().filter(u -> u.getId().equals(id)).findFirst().orElse(null);
     }
 
+    public void deleteById(int id) {
+        users.removeIf(u -> u.getId().equals(id));
+    }
+
     public User saveUser(User user) {
         user.setId(++usersCount);
         users.add(user);
